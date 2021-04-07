@@ -17,8 +17,6 @@ canvas.width = innerWidth;
 canvas.height = innerHeight;
 
 
-
-
 let playerIcon = new Image();
 playerIcon.src = 'http://localhost:8080/static/icons/player.png';
 

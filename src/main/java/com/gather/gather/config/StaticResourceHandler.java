@@ -9,7 +9,7 @@ import org.springframework.web.servlet.resource.PathResourceResolver;
 
 @Configuration
 @EnableWebMvc
-public class Static_ResourceHandler implements WebMvcConfigurer {
+public class StaticResourceHandler implements WebMvcConfigurer {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
@@ -17,14 +17,12 @@ public class Static_ResourceHandler implements WebMvcConfigurer {
 
         // src/main/resources/static/...
         registry
-            //.addResourceHandler("/**") // « /css/myStatic.css
             .addResourceHandler("/static/**") // « /static/css/myStatic.css
             .addResourceLocations("classpath:/static/") // Default Static Loaction
-            .setCachePeriod( 3600 )
+            .setCachePeriod( 10 )
             .resourceChain(true) // 4.1
-           ; //4.1
+           ;
 
-        // src/main/resources/templates/static/...
         registry
             .addResourceHandler("/templates/**") // « /templates/style.css
             .addResourceLocations("classpath:/templates/static/");

@@ -21,3 +21,34 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+/.gradle/buildOutputCleanup/buildOutputCleanup.lock
+/.gradle/buildOutputCleanup/cache.properties
+/.gradle/checksums/checksums.lock
+/.gradle/6.8.3/javaCompile/classAnalysis.bin
+/.gradle/5.2.1/executionHistory/executionHistory.bin
+/.gradle/6.8.3/executionHistory/executionHistory.bin
+/.gradle/5.2.1/executionHistory/executionHistory.lock
+/.gradle/6.8.3/executionHistory/executionHistory.lock
+/.gradle/5.2.1/fileHashes/fileHashes.bin
+/.gradle/6.8.3/fileHashes/fileHashes.bin
+/.gradle/5.2.1/fileHashes/fileHashes.lock
+/.gradle/6.1.1/fileHashes/fileHashes.lock
+/.gradle/6.8.3/fileHashes/fileHashes.lock
+/.gradle/5.2.1/gc.properties
+/.gradle/6.1.1/gc.properties
+/.gradle/6.8.3/gc.properties
+/.gradle/configuration-cache/gc.properties
+/.gradle/vcs-1/gc.properties
+/.idea/gradle.xml
+/.idea/jarRepositories.xml
+/.gradle/6.8.3/javaCompile/javaCompile.lock
+/.gradle/5.2.1/fileChanges/last-build.bin
+/.gradle/6.1.1/fileChanges/last-build.bin
+/.gradle/6.8.3/fileChanges/last-build.bin
+/.gradle/checksums/md5-checksums.bin
+/.idea/misc.xml
+/.gradle/buildOutputCleanup/outputFiles.bin
+/.gradle/checksums/sha1-checksums.bin
+/build/tmp/compileJava/source-classes-mapping.txt
+/.gradle/6.8.3/javaCompile/taskHistory.bin
+/.idea/vcs.xml

@@ -1,11 +1,8 @@
-package com.gather.gather.config;
+package com.gather.config;
 
-import com.gather.gather.com.gather.gather.com.gather.gather.controller.MessageController;
+import com.gather.controller.MessageController;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.messaging.simp.config.MessageBrokerRegistry;
 import org.springframework.web.socket.config.annotation.*;
-
-import java.util.logging.SocketHandler;
 
 @Configuration
 @EnableWebSocket

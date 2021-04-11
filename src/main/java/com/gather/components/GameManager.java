@@ -1,6 +1,6 @@
-package com.gather.gather.com.gather.gather.components;
+package com.gather.components;
 
-import com.gather.gather.com.gather.gather.model.Player;
+import com.gather.model.Player;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;

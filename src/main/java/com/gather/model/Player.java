@@ -1,4 +1,4 @@
-package com.gather.gather.com.gather.gather.model;
+package com.gather.model;
 
 import lombok.Data;
 

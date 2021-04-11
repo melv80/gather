@@ -1,4 +1,4 @@
-package com.gather.gather;
+package com.gather;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

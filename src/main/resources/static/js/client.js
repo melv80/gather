@@ -68,8 +68,6 @@ class Player {
 
 let localPlayer = new Player();
 
-
-
 (function(){Math.clamp=function(val,min,max){return Math.max(min,Math.min(max,val));}})();
 
 function step() {

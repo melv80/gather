@@ -3,9 +3,11 @@ let ws;
 class Message {
     from;
     text;
-    constructor(from, message) {
+    type;
+    constructor(from, message, type) {
         this.from = from;
         this.text = message;
+        this.type = type;
     }
 }
 
@@ -14,6 +16,7 @@ function connect() {
     ws.onmessage = function(data){
         showGreeting(data.data);
     }
+    joinGame();
 }
 
 function disconnect() {
@@ -23,10 +26,19 @@ function disconnect() {
     console.log("Disconnected");
 }
 
+function joinGame() {
+    ws.send(JSON.stringify(new Message(
+        "new",
+        "#join",
+        "command"
+    )));
+}
+
 function sendMessage() {
     ws.send(JSON.stringify(new Message(
         document.getElementById("from").value,
-        document.getElementById("text").value)));
+        document.getElementById("text").value,
+        "chat")));
 }
 
 function showGreeting(message) {

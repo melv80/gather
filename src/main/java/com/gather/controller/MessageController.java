@@ -26,7 +26,11 @@ public class MessageController extends TextWebSocketHandler {
 
         for(WebSocketSession webSocketSession : sessions) {
             Message parsed = new Gson().fromJson(message.getPayload(), Message.class);
-            webSocketSession.sendMessage(new TextMessage(parsed.getFrom()+": "+parsed.getText()));
+
+
+            if (parsed.getType().equalsIgnoreCase("chat")) {
+                webSocketSession.sendMessage(new TextMessage(parsed.getFrom() + ": " + parsed.getText()));
+            }
         }
     }
 

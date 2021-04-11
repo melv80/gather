@@ -9,7 +9,7 @@ const scaledHeight = scale * height;
 const cycleLoop = [0, 1, 0, 2];
 
 canvas.width = innerWidth;
-canvas.height = innerHeight;
+canvas.height = innerHeight*.8;
 
 let frameCount = 0;
 let currentLoopIndex = 0;

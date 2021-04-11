@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <title>Gather</title>
 </head>
-<body style="margin: 0" onload="disconnect()">
+<body style="margin: 0">
 <canvas id="canvas"></canvas>
 <div>
     <div>
@@ -14,7 +14,7 @@
     </div>
     <br/>
     <div>
-        <button id="connect" onclick="connect();">Connect</button>
+        <button id="connect" onclick="connect();joinGame();">Connect</button>
         <button id="disconnect" disabled="disabled" onclick="disconnect();">
             Disconnect
         </button>

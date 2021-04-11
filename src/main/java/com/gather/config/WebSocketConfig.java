@@ -1,5 +1,6 @@
 package com.gather.config;
 
+import com.gather.components.GameManager;
 import com.gather.controller.MessageController;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.socket.config.annotation.*;
@@ -9,6 +10,6 @@ import org.springframework.web.socket.config.annotation.*;
 public class WebSocketConfig implements WebSocketConfigurer {
 
     public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
-        registry.addHandler(new MessageController(), "/name");
+        registry.addHandler(new MessageController(new GameManager()), "/name");
     }
 }

@@ -17,7 +17,7 @@ public class StaticResourceHandler implements WebMvcConfigurer {
         registry
             .addResourceHandler("/static/**") // « /static/css/myStatic.css
             .addResourceLocations("classpath:/static/") // Default Static Loaction
-            .setCachePeriod( 10 )
+            .setCachePeriod( 0 )
             .resourceChain(true) // 4.1
            ;
 

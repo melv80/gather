@@ -14,7 +14,7 @@ playerXFuture = 0;
 playerYFuture = 0;
 
 canvas.width = innerWidth;
-canvas.height = innerHeight;
+canvas.height = innerHeight*.8;
 
 
 let playerIcon = new Image();

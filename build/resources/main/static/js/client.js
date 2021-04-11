@@ -6,30 +6,69 @@ const width = 16;
 const height = 18;
 const scaledWidth = scale * width;
 const scaledHeight = scale * height;
-
-
-playerX = 0;
-playerY = 0;
-playerXFuture = 0;
-playerYFuture = 0;
+const cycleLoop = [0, 1, 0, 2];
 
 canvas.width = innerWidth;
 canvas.height = innerHeight;
 
+let frameCount = 0;
+let currentLoopIndex = 0;
 
-let playerIcon = new Image();
-playerIcon.src = 'http://localhost:8080/static/icons/player.png';
+class Player {
+    constructor() {
+        this.currentDirection = 0;
+        this.playerX = 0;
+        this.playerY = 0;
+        this.nextX = 0;
+        this.nextY = 0;
 
-function drawFrame(frameX, frameY, canvasX, canvasY) {
-    ctx.drawImage(playerIcon,
-        frameX * width, frameY * height, width, height,
-        canvasX, canvasY, scaledWidth, scaledHeight);
+        this.icon = new Image();
+        this.icon.src = 'http://localhost:8080/static/icons/player.png';
+
+    }
+
+    drawFrame(frameX) {
+
+        this.nextX = Math.clamp(this.nextX, 0, innerWidth);
+        this.nextY = Math.clamp(this.nextY, 0, innerHeight);
+
+        ctx.clearRect(this.playerX, this.playerY, this.icon.width, this.icon.height);
+        ctx.drawImage(this.icon,
+            frameX * width, this.currentDirection * height, width, height,
+            this.nextX, this.nextY, scaledWidth, scaledHeight);
+        this.playerX = this.nextX;
+        this.playerY = this.nextY;
+    }
+
+    moveRight() {
+        this.currentDirection = 3;
+        this.nextX =this.playerX+10;
+        this.nextY = this.playerY;
+    }
+
+    moveDown() {
+        this.currentDirection = 0;
+        this.nextX =this.playerX;
+        this.nextY = this.playerY+10;
+    }
+
+    moveUp() {
+        this.currentDirection = 1;
+        this.nextX =this.playerX;
+        this.nextY = this.playerY-10;
+    }
+
+    moveLeft() {
+        this.currentDirection = 2;
+        this.nextX=this.playerX-10;
+        this.nextY = this.playerY;
+    }
 }
 
-const cycleLoop = [0, 1, 0, 2];
-let currentLoopIndex = 0;
-let frameCount = 0;
-let currentDirection = 0;
+
+let localPlayer = new Player();
+
+
 
 (function(){Math.clamp=function(val,min,max){return Math.max(min,Math.min(max,val));}})();
 
@@ -40,45 +79,33 @@ function step() {
         return;
     }
     frameCount = 0;
-    ctx.clearRect(playerX, playerY, playerIcon.width, playerIcon.height);
-    drawFrame(cycleLoop[currentLoopIndex], currentDirection, playerXFuture, playerYFuture);
+    localPlayer.drawFrame(cycleLoop[currentLoopIndex]);
     currentLoopIndex++;
     if (currentLoopIndex >= cycleLoop.length) {
         currentLoopIndex = 0;
     }
-    playerX = playerXFuture;
-    playerY = playerYFuture;
 
     window.requestAnimationFrame(step);
 }
 
+
 function handleKeyDown(event) {
     if (event.code === "KeyA") {
-        currentDirection = 2;
-        playerXFuture=playerX-10;
-        playerYFuture = playerY;
+        localPlayer.moveLeft();
     }
 
     if (event.code === "KeyW") {
-        currentDirection = 1;
-        playerXFuture=playerX;
-        playerYFuture = playerY-10;
-    }
-
-    if (event.code === "KeyD") {
-        currentDirection = 3;
-        playerXFuture=playerX+10;
-        playerYFuture = playerY;
+        localPlayer.moveUp();
     }
 
     if (event.code === "KeyS") {
-        currentDirection = 0;
-        playerXFuture=playerX;
-        playerYFuture = playerY+10;
+        localPlayer.moveDown();
     }
 
-    playerXFuture = Math.clamp(playerXFuture, 0, innerWidth);
-    playerYFuture = Math.clamp(playerYFuture, 0, innerHeight);
+    if (event.code === "KeyD") {
+        localPlayer.moveRight();
+    }
+
 }
 
 window.addEventListener('keydown', (event) => {
